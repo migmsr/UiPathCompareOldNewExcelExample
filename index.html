@@ -1,0 +1,71 @@
+<!-- saved from url=(0016)http://localhost -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>UiPath</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+    <h1>Choose old and new files to compare</h1>
+
+    <div class="buttons_div">
+        <div class="divdiv">
+            <input type="file" id="oldFile" accept=".xls,.xlsx" onchange="update(this.id)">
+            <label for="oldFile" id="oldFileLabel">Choose Old File</label>
+            <p class="selected_text" id="old_selected_text">None selected</p>
+        </div>
+
+        <div class="divdiv">
+            <input type="file" id="newFile" accept=".xls,.xlsx" onchange="update(this.id)">
+            <label for="newFile" id="newFileLabel">Choose New File</label>
+            <p class="selected_text" id="new_selected_text">None selected</p>
+        </div>
+
+        <button class="submit" onclick="SubmitValues()">Submit</button>
+
+        <h3 id="select_both_text"></h3>
+
+    </div>
+    
+    
+    <script type="text/javascript">
+        function SubmitValues(){
+        var old_file_path = document.getElementById("oldFile").value;
+        var new_file_path = document.getElementById("newFile").value;
+        //   document.getElementById("teste").textContent = old_file_path + new_file_path
+            try {
+                if(document.getElementById("old_selected_text").textContent != "None selected" && document.getElementById("new_selected_text").textContent != "None selected"){
+                    
+                    document.getElementById("select_both_text").textContent = ""
+                    window.external.setResult(old_file_path + ";" + new_file_path);
+                    return true;
+                }
+                else{
+                    document.getElementById("select_both_text").textContent = "Select both files!"
+                }
+
+            } catch (error) {
+                document.getElementById("teste").textContent = error;
+            }
+        }
+    </script>
+
+    <script type="text/javascript"">
+        update = function(id){
+            if(id == "oldFile"){
+                document.getElementById("old_selected_text").textContent = document.getElementById("oldFile").value
+            }
+            else if(id == "newFile"){
+                document.getElementById("new_selected_text").textContent = document.getElementById("newFile").value
+            }              
+        }
+    </script>
+
+
+</body>
+</html>

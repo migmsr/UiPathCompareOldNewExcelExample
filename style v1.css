@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Sarala:wght@700&display=swap');
+
+/* This style uses flex box, which is NOT recognized by UiPath */
+
+body {
+    font-family: 'Righteous', cursive;
+    color:azure;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(32,95,128,1) 0%, rgba(5,141,222,1) 100%); 
+}
+input[type="file"]{
+    display: none;
+}
+
+label{
+    color: black;
+    background-color: blanchedalmond;
+    padding: 5px;
+    height: 20px;
+    width: 120px;
+}
+
+label:hover{
+    background-color: rgb(255, 196, 123);
+}
+
+.buttons_div{
+    display: flex;
+    flex-direction: column;
+}
+
+.divdiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+}
+
+.submit{
+    height: fit-content;
+    width: fit-content;
+    margin-top: 10px;
+
+}
